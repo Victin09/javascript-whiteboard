@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Canvas drawing!</title>
+        <link rel="stylesheet" href="styles.css" />
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+            integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.8/paper-full.min.js"></script>
+        <script src="./js/offset.js"></script>
+    </head>
+    <body>
+        <div id="canvas">
+            <canvas id="canvasDraw" style="z-index: 1;"></canvas>
+            <canvas id="canvasGrid" style="z-index: 0;"></canvas>
+        </div>
+        <div id="options" class="menu">
+            <div class="form-inline form-group controls">
+                <span class="mr-sm-2">Nombre:</span>
+                <input
+                    id="name"
+                    class="form-control form-control-sm"
+                    type="text"
+                />
+                <span class="ml-sm-2 mr-sm-2">Tañano del pincel:</span>
+                <div>
+                    <select
+                        id="selWidth"
+                        class="form-control-sm"
+                        onchange="selectWidth()"
+                    >
+                        <option value="1">1</option>
+                        <option value="3" selected="selected">3</option>
+                        <option value="5">5</option>
+                        <option value="7">7</option>
+                        <option value="9">9</option>
+                        <option value="11">11</option>
+                        <option value="11">13</option>
+                        <option value="11">15</option>
+                        <option value="11">17</option>
+                    </select>
+                </div>
+                <span class="mr-sm-2 ml-sm-2">Color:</span>
+                <select
+                    id="selColor"
+                    class="form-control-sm"
+                    onchange="selectColor()"
+                >
+                    <option value="black" selected="selected">Negro</option>
+                    <option value="blue">Azul</option>
+                    <option value="red">Rojo</option>
+                    <option value="green">Verde</option>
+                    <option value="yellow">Amarillo</option>
+                    <option value="gray">Gris</option>
+                </select>
+                <button
+                    id="btnClear"
+                    class="ml-sm-2 btn btn-sm btn-light"
+                    onclick="writeTextCanvas()"
+                >
+                    <i class="fa fa-font" aria-hidden="true"></i>
+                </button>
+                <button
+                    id="btnMouse"
+                    class="ml-sm-2 btn btn-sm btn-light"
+                    onclick="selectOnCanvas()"
+                >
+                    <i class="fa fa-mouse-pointer" aria-hidden="true"></i>
+                </button>
+                <button
+                    id="btnClear"
+                    class="ml-sm-2 btn btn-sm btn-light"
+                    onclick="clearCanvasCursor()"
+                >
+                    Borrar <i class="fa fa-eraser" aria-hidden="true"></i>
+                </button>
+                <button
+                    class="ml-sm-2 btn btn-sm btn-light"
+                    onclick="clearCanvas()"
+                >
+                    Limpiar <i class="fa fa-magic" aria-hidden="true"></i>
+                </button>
+                <button
+                    class="ml-sm-2 btn btn-sm btn-light"
+                    onclick="saveCanvas()"
+                >
+                    Guardar <i class="fa fa-save" aria-hidden="true"></i>
+                </button>
+                <div class="ml-sm-2 d-flex align-items-center file-input">
+                    <input id="uploader" class="button" type="file" />
+                    <!-- <span class="button">Choose</span> -->
+                    <span class="label" data-js-label
+                        >Selecciona un archivo</span
+                    >
+                </div>
+
+                <span class="mr-sm-2 ml-sm-2">- Opciones:</span>
+                <input
+                    id="grid"
+                    class="form-check-input"
+                    type="checkbox"
+                    id="inlineCheckbox1"
+                    onclick="showCanvasGrid()"
+                />
+                <label class="form-check-label" for="inlineCheckbox1"
+                    >Cuadricula</label
+                >
+            </div>
+        </div>
+
+        <script src="scripts.js"></script>
+        <script
+            src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>

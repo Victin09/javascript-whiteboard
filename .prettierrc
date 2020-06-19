@@ -1,0 +1,17 @@
+{
+    "semi": false,
+    "overrides": [
+        {
+            "files": "*.index.js",
+            "options": {
+                "semi": true
+            }
+        },
+        {
+            "files": ["*.html", "*.css", "*.js", ".prettierrc"],
+            "options": {
+                "tabWidth": 4
+            }
+        }
+    ]
+}
